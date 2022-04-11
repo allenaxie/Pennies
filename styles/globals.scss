@@ -1,0 +1,21 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 62.5%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.siderNav {
+  height: 100vh;
+  // position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #fff;
+  border-right: .5px solid rgba(229, 229, 229, 0.3);
+}
