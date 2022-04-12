@@ -1,19 +1,26 @@
 import classes from "./Navbar.module.scss";
-import { IdcardOutlined, FolderOpenOutlined, MailOutlined, BranchesOutlined, UserOutlined } from "@ant-design/icons";
-import { Menu, Button } from "antd";
 import Link  from 'next/link';
 import { Dispatch, SetStateAction } from "react";
+import { 
+    MenuUnfoldOutlined, 
+    MenuFoldOutlined,
+    IdcardOutlined, 
+    FolderOpenOutlined, 
+    MailOutlined, 
+    UserOutlined 
+} from "@ant-design/icons";
+import { 
+    Menu, 
+    Button 
+} from "antd";
+
 
 interface NavbarProps {
     isNavCollapsed: boolean,
-    setIsNavCollapsed: Dispatch<SetStateAction<boolean>>,
+    navToggle: any,
 }
 
-const Navbar = (props: NavbarProps) => {
-
-    function toggleNav() {
-        props.setIsNavCollapsed(!props.isNavCollapsed);
-    }
+const Navbar = ({isNavCollapsed, navToggle}: NavbarProps) => {
 
     return (
         <Menu
@@ -21,6 +28,9 @@ const Navbar = (props: NavbarProps) => {
             theme="light"
             mode="inline"
         >
+            <Menu.Item onClick={navToggle}>
+                {isNavCollapsed ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>}
+            </Menu.Item>
             <Menu.Item className={classes.menuItems} key="1" icon={<UserOutlined />}>
                     <Link href="/">
                         Home           

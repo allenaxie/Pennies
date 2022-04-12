@@ -10,16 +10,24 @@ function MyApp({ Component, pageProps }: AppProps) {
   const { Header, Footer, Sider, Content } = Layout;
   const [isNavCollapsed, setIsNavCollapsed] = useState(true)
 
-  return (
+  const navToggle = () => {
+    setIsNavCollapsed(!isNavCollapsed)
+  }
 
+  return (
     <Layout>
-      <Sider className="siderNav">
-        <Navbar
-          isNavCollapsed={isNavCollapsed}
-          setIsNavCollapsed={setIsNavCollapsed}
-        />
+      <Sider 
+      collapsible 
+      className="siderNav"
+      collapsed={isNavCollapsed}
+      theme="light"
+      trigger={null}
+      >
+        <Navbar isNavCollapsed={isNavCollapsed} navToggle={navToggle}/>
       </Sider>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </Layout>
 
 
