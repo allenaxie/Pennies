@@ -8,7 +8,8 @@ import { Navbar } from '../components';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { Header, Footer, Sider, Content } = Layout;
-  const [isNavCollapsed, setIsNavCollapsed] = useState(true)
+  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+  const [isNewUser, setIsNewUser] = useState(true);
 
   const navToggle = () => {
     setIsNavCollapsed(!isNavCollapsed)
@@ -23,10 +24,10 @@ function MyApp({ Component, pageProps }: AppProps) {
       theme="light"
       trigger={null}
       >
-        <Navbar isNavCollapsed={isNavCollapsed} navToggle={navToggle}/>
+        <Navbar isNavCollapsed={isNavCollapsed} navToggle={navToggle} isNewUser={isNewUser} setIsNewUser={setIsNewUser}/>
       </Sider>
       <Layout>
-        <Component {...pageProps} />
+        <Component {...pageProps} isNewUser={isNewUser} setIsNewUser={setIsNewUser}/>
       </Layout>
     </Layout>
 

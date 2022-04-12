@@ -1,8 +1,23 @@
-.heroCol1, .heroCol2 {
-  display: flex;
-  justify-content: center;
-}
+.heroSection {
+  width: 100%;
+  height: 100vh;
+  margin: 4rem 0 0 0;
+  padding: 5rem;
 
-.heroPrimaryText {
-  font-size: 3.5rem;
+  .heroCol1 {
+    display: flex;
+    justify-content: center;
+  }
+  .heroCol2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .heroPrimaryText {
+    font-size: 6.5rem;
+    text-align: center;
+  }
+  .heroBtn {
+    width: 30rem;
+  }
 }

@@ -19,9 +19,11 @@ import {
 interface NavbarProps {
     isNavCollapsed: boolean,
     navToggle: any,
+    isNewUser: boolean,
+    setIsNewUser: any,
 }
 
-const Navbar = ({isNavCollapsed, navToggle}: NavbarProps) => {
+const Navbar = ({isNavCollapsed, navToggle, isNewUser, setIsNewUser}: NavbarProps) => {
 
     return (
         <Menu
@@ -44,13 +46,13 @@ const Navbar = ({isNavCollapsed, navToggle}: NavbarProps) => {
                         About                
                     </Link>
             </Menu.Item>
-            <Menu.Item className={classes.menuItems} key="3" icon={ <UserAddOutlined /> }>
-                <Link href="/signup">
+            <Menu.Item className={classes.menuItems} key="3" icon={ <UserAddOutlined /> } onClick={() => setIsNewUser(true)}>
+                <Link href="/auth">
                     Sign Up
                 </Link>
             </Menu.Item>
-            <Menu.Item className={classes.menuItems} key="4" icon={<ImportOutlined />}>
-                <Link href="/login">
+            <Menu.Item className={classes.menuItems} key="4" icon={<ImportOutlined />} onClick={() => setIsNewUser(false)}>
+                <Link href="/auth">
                     Log In
                 </Link>
             </Menu.Item>
