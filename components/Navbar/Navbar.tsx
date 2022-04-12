@@ -5,9 +5,10 @@ import {
     MenuUnfoldOutlined, 
     MenuFoldOutlined,
     IdcardOutlined, 
-    FolderOpenOutlined, 
-    MailOutlined, 
-    UserOutlined 
+    UserAddOutlined,
+    ImportOutlined, 
+    HomeOutlined,
+    
 } from "@ant-design/icons";
 import { 
     Menu, 
@@ -28,10 +29,12 @@ const Navbar = ({isNavCollapsed, navToggle}: NavbarProps) => {
             theme="light"
             mode="inline"
         >
-            <Menu.Item onClick={navToggle}>
-                {isNavCollapsed ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>}
-            </Menu.Item>
-            <Menu.Item className={classes.menuItems} key="1" icon={<UserOutlined />}>
+            <div className={classes.togglerContainer}>
+                <Button onClick={navToggle}>
+                    {isNavCollapsed ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>}
+                </Button>
+            </div>
+            <Menu.Item className={classes.menuItems} key="1" icon={<HomeOutlined />}>
                     <Link href="/">
                         Home           
                     </Link>
@@ -41,12 +44,12 @@ const Navbar = ({isNavCollapsed, navToggle}: NavbarProps) => {
                         About                
                     </Link>
             </Menu.Item>
-            <Menu.Item className={classes.menuItems} key="3" icon={ <FolderOpenOutlined /> }>
+            <Menu.Item className={classes.menuItems} key="3" icon={ <UserAddOutlined /> }>
                 <Link href="/signup">
                     Sign Up
                 </Link>
             </Menu.Item>
-            <Menu.Item className={classes.menuItems} key="4" icon={<MailOutlined />}>
+            <Menu.Item className={classes.menuItems} key="4" icon={<ImportOutlined />}>
                 <Link href="/login">
                     Log In
                 </Link>
