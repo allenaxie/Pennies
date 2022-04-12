@@ -1,10 +1,16 @@
 import type { NextPage } from 'next';
 import classes from '../styles/Home.module.scss';
+import Link  from 'next/link';
 import { useState } from 'react';
 import { Layout, Row, Col, Button } from 'antd';
 import { Navbar } from '../components';
 
-const HomePage: NextPage = () => {
+interface HomePageProps {
+  isNewUser: boolean,
+  setIsNewUser: any,
+}
+
+const HomePage = ({isNewUser, setIsNewUser}: HomePageProps) => {
   const { Header, Footer, Sider, Content } = Layout;
 
   return (
@@ -31,14 +37,16 @@ const HomePage: NextPage = () => {
             <span className={classes.heroPrimaryText}>
               Take control of your financial future
             </span>
-            <Button className={classes.heroBtn} shape="round" href="/signup">
-              Get Started
+            <Button className={classes.heroBtn} shape="round" onClick={() => setIsNewUser(true)}>
+              <Link href="/auth">
+                Get Started
+              </Link>
             </Button>
           </Col>
         </Row>
       </Content>
       <Footer>
-        Footer
+        
       </Footer>
      </Layout>
   )

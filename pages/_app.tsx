@@ -4,7 +4,8 @@ import type { AppProps } from 'next/app';
 import { useState } from 'react';
 import { Layout } from 'antd';
 import { Navbar } from '../components';
-
+import Link  from 'next/link';
+import { collectAssets } from 'next/dist/build/webpack/plugins/middleware-plugin';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { Header, Footer, Sider, Content } = Layout;
@@ -27,6 +28,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Navbar isNavCollapsed={isNavCollapsed} navToggle={navToggle} isNewUser={isNewUser} setIsNewUser={setIsNewUser}/>
       </Sider>
       <Layout>
+        {isNavCollapsed || <div className="backdrop" onClick={navToggle}></div>}
         <Component {...pageProps} isNewUser={isNewUser} setIsNewUser={setIsNewUser}/>
       </Layout>
     </Layout>
