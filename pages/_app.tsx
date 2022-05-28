@@ -25,11 +25,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       theme="light"
       trigger={null}
       >
-        <Navbar isNavCollapsed={isNavCollapsed} navToggle={navToggle} isNewUser={isNewUser} setIsNewUser={setIsNewUser}/>
+        <Navbar isNavCollapsed={isNavCollapsed} navToggle={navToggle} isNewUser={isNewUser} setIsNewUser={setIsNewUser} setIsNavCollapsed={setIsNavCollapsed}/>
       </Sider>
       <Layout>
         {isNavCollapsed || <div className="backdrop" onClick={navToggle}></div>}
-        <Component {...pageProps} isNewUser={isNewUser} setIsNewUser={setIsNewUser}/>
+        <Component className="body" {...pageProps} isNewUser={isNewUser} setIsNewUser={setIsNewUser} />
       </Layout>
     </Layout>
 

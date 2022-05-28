@@ -19,7 +19,6 @@ const Login = () => {
                 initialValues={{ remember: true }}
                 onFinish={onFinish}
                 onFinishFailed={onFinishFailed}
-                autoComplete="off"
                 className={classes.form}
             >
                 <Form.Item
@@ -35,7 +34,7 @@ const Login = () => {
                     name="password"
                     rules={[{ required: true, message: 'Please input your password!' }]}
                 >
-                    <Input.Password />
+                    <Input.Password autoComplete='current-password'/>
                 </Form.Item>
 
                 <Form.Item wrapperCol={{ offset: 8, span: 16 }}>

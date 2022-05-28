@@ -8,13 +8,14 @@ import { Navbar } from '../components';
 interface HomePageProps {
   isNewUser: boolean,
   setIsNewUser: any,
+  users: any,
 }
 
 const HomePage = ({isNewUser, setIsNewUser}: HomePageProps) => {
   const { Header, Footer, Sider, Content } = Layout;
-
+  
   return (
-     <Layout>
+     <Layout className={classes.container}>
       <Content>
         <Row className={classes.heroSection}>
           <Col 
@@ -53,3 +54,4 @@ const HomePage = ({isNewUser, setIsNewUser}: HomePageProps) => {
 }
 
 export default HomePage;
+

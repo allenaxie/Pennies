@@ -20,15 +20,17 @@ interface NavbarProps {
     navToggle: any,
     isNewUser: boolean,
     setIsNewUser: any,
+    setIsNavCollapsed: any,
 }
 
-const Navbar = ({isNavCollapsed, navToggle, isNewUser, setIsNewUser}: NavbarProps) => {
+const Navbar = ({isNavCollapsed, navToggle, isNewUser, setIsNewUser, setIsNavCollapsed}: NavbarProps) => {
 
     return (
         <Menu
             className={classes.navbarContainer}
             theme="light"
             mode="inline"
+            onClick={() => setIsNavCollapsed(true)}
         >
             <div className={classes.togglerContainer}>
                 <Button onClick={navToggle}>
@@ -46,12 +48,12 @@ const Navbar = ({isNavCollapsed, navToggle, isNewUser, setIsNewUser}: NavbarProp
                     </Link>
             </Menu.Item>
             <Menu.Item className={classes.menuItems} key="signup" icon={ <UserAddOutlined /> } onClick={() => setIsNewUser(true)}>
-                <Link href="/auth">
+                <Link href="/auth" as="/signup">
                     Sign Up
                 </Link>
             </Menu.Item>
             <Menu.Item className={classes.menuItems} key="login" icon={<ImportOutlined />} onClick={() => setIsNewUser(false)}>
-                <Link href="/auth">
+                <Link href="/auth" as="/login">
                     Log In
                 </Link>
             </Menu.Item>
